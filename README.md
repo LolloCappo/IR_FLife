@@ -1,1 +1,1 @@
-# thermal-damage
+# Thermoelasticity-based modal damage identification
