@@ -1,3 +1,5 @@
+import numpy as np
+
 class ThermalData():
         
     def __init__(self, x, dt):
