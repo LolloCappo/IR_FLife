@@ -101,10 +101,10 @@ If the fatigue life is wanted in the spatial domain
 
 Reference:
 
-[1] Lorenzo Capponi, Janko Slavič, Gianluca Rossi, Miha Boltežar
-    Thermoelasticity-based modal damage identification.
+[1] Thermoelasticity-based modal damage identification.
+    Lorenzo Capponi, Janko Slavič, Gianluca Rossi, Miha Boltežar
     International Journal of Fatigue (2020)
 
-[2] Janko Slavič, Matjaž Mršnik, Martin Česnik, Jaka Javh, Miha Boltežar. 
-    Vibration Fatigue by Spectral Methods, From Structural Dynamics to Fatigue Damage – Theory and Experiments.
+[2] Vibration Fatigue by Spectral Methods, From Structural Dynamics to Fatigue Damage – Theory and Experiments.
+    Janko Slavič, Matjaž Mršnik, Martin Česnik, Jaka Javh, Miha Boltežar.
     ISBN: 9780128221907, Elsevier, 1st September 2020.
