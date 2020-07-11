@@ -2,7 +2,7 @@ Thermoelasticity-based fatigue life identification
 ---------------------------------------------
 
 Obtaining vibration fatigue life form thermal images acquisition.
-The class is based on the modal damage via thermoelasticity [1] and on the Flife package [2].
+The class is based on the modal damage via thermoelasticity [1] and on the FLife package [2].
 
 
 Import packages
