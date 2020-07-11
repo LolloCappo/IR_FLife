@@ -2,6 +2,7 @@ Thermoelasticity-based fatigue life identification
 ---------------------------------------------
 
 Obtaining vibration fatigue life form thermal images acquisition.
+The class is based on the modal damage via thermoelasticity [1] and on the Flife package [2].
 
 
 Import packages
@@ -95,3 +96,15 @@ If the fatigue life is wanted in the spatial domain
     plt.figure()
     plt.imshow(md)
     plt.colorbar()
+
+
+
+Reference:
+
+[1] Lorenzo Capponi, Janko Slavič, Gianluca Rossi, Miha Boltežar
+    Thermoelasticity-based modal damage identification.
+    International Journal of Fatigue (2020)
+
+[2] Janko Slavič, Matjaž Mršnik, Martin Česnik, Jaka Javh, Miha Boltežar. 
+    Vibration Fatigue by Spectral Methods, From Structural Dynamics to Fatigue Damage – Theory and Experiments.
+    ISBN: 9780128221907, Elsevier, 1st September 2020.
