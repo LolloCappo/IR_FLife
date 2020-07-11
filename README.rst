@@ -51,8 +51,7 @@ Natural frequency identification from thermal video
 If the location is picked with the mouse click
 
 .. code-block:: python
-    
-    %matplotlib qt               
+             
     td.loc_selection()           # Mouse selection of central pixel of the roi
     f = td.nf_identification()   # Natural frequency identification
 
