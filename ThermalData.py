@@ -7,13 +7,16 @@ class ThermalData():
 
     '''
     Termoelasticity-based fatigue life identification.
-    The class takes in input a thermal-stress video and gives in output the fatigue life, estimanted via modal damage identification,
-    and via standard frequency-domain and time-domain methods. The natural frequencies to be used in modal damage identification
+    The class takes in input a thermal-stress video and gives in output the fatigue life, estimated via modal damage identification,
+    [1] and standard frequency and time-domain methods [2]. The natural frequencies to be used in modal damage identification
     approach [1] can be also obtained through frequency analysis.
 
     [1] Capponi, L., Slavič, J., Rossi, G., & Boltežar, M.
         Thermoelasticity-based modal damage identification.
         International Journal of Fatigue, 105661 (2020).
+    [2] Slavič J., Mršnik M., Česnik M., Javh J., Boltežar M.. 
+        Vibration Fatigue by Spectral Methods, From Structural Dynamics to Fatigue Damage – Theory and Experiments.
+        ISBN: 9780128221907, Elsevier, 1st September 2020
     '''
 
     def __init__(self, x, dt, nfi_pixel_x = None, nfi_pixel_y = None):
@@ -33,7 +36,7 @@ class ThermalData():
         -------
         ._find_nearest     : Find nearest element in array
         
-        ._pixel_selection  : Storage of pixel coordinates
+        ._pixel_selection  : Pixel coordinates storage
         
         .loc_selection     : Takes pixel coordinates and defines a roi location for the natural frequency identification
         
@@ -80,20 +83,22 @@ class ThermalData():
     def nf_identification(self, location = None, roi = None, band_pass = None):
 
         '''
-        Natural frequency identification through spectral analysis of the thermal video.
+        Natural frequency identification through Fourier analysis of the thermal video.
 
         Parameters
         ----------
-        location  : list, optional
-                    Thermal video of stress measurement values. Correct shape: [frames, width, height]
+        location  : int, optional
+                    List of roi components (x, y, w, h): where x and y are the upper left coordinates of the roi,
+                    and w and h are the width and the height of the roi. If location is 'None', mouse selection of
+                    central point of the roi is activated. Default to 'None'.
 
         roi       : int, optional
-                    Pixel size of the region of interest for the natural frequency identification. If None is used, roi = 5.
-                    Default to None.
+                    Size of the region of interest for the natural frequency identification.
+                    If 'None' is used, 5 pixel squared roi is used. Default to 'None'.
 
-        band_pass : list of float
+        band_pass : float, optional
                     List of band pass filter frequencies for the natural frequency identification.
-                    If None is used, band_pass = [5, 100]. Default to None.
+                    If 'None' is used, band_pass = [5, 100] [Hz]. Default to 'None'.
 
         '''
 
@@ -120,9 +125,9 @@ class ThermalData():
 
     def get_life(self, C, k, method = None, f = None, location = None, f_span = None):
 
-
         '''
-        Natural frequency identification through spectral analysis of the thermal video.
+        Fatigue life estimation via modal damage identification and via standard frequency and time-domain methods.
+        The frequency and time related methods are based on FLife package.
 
         Parameters
         ----------
@@ -133,21 +138,30 @@ class ThermalData():
                         Fatigue strength exponent [/].
 
         method      : string
-                        Method to use for the fatigue life identification.
-                        Method = ['Modal', 'TovoBenasciutti', 'Dirlik', 'Rainflow'] 
+                        Method to use for the fatigue life estimation.
+                        Method = ['Modal', 'TovoBenasciutti', 'Dirlik', 'Rainflow']. If method is 'None', Tovo Benasciutti's
+                        method is used. Default to 'None'. 
 
-        f           : float
-                        Natural frequency [Hz]. Necesary is method is 'Modal', otherwise is optional. 
+        f           : float, optional
+                        Natural frequency [Hz]. Necessary if method is 'Modal', otherwise is optional. 
 
-        location    : list, optional
-                        If the damage is wanted for a particular location
+        location    : int, optional
+                        List of roi components (x, y, w, h): x and y are the upper left coordinates of the roi,
+                        and w and h are the width and the height of the roi. If location is 'None', fatigue life is estimated 
+                        for the entire spatial domain, otherwise maximum value in the roi location is given. Default to 'None'.
 
-        f_span      :   
+        f_span      : float, optional
+                        Frequency span around the natural frequency where to find the maximum value for the fatigue life estimation.
+                        If f_span is 'None', the f_span is 0.1 [Hz].
 
         '''
         
         self.N = self.x.shape[0]
         self.ds = self.x - self.x[0,:,:]
+        
+        
+        if f_span == None:
+            f_span = 0.1
         
         if method == None:
             method = 'TovoBenasciutti'
