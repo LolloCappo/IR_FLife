@@ -26,28 +26,34 @@ class ThermalData():
 
         Parameters
         ----------
-        x : array_like
-            Thermal video of stress measurement values. Correct shape: [frames, width, height]
+        x       : array_like
+                  Thermal video of stress measurement values. Correct shape: [frames, width, height].
 
-        dt : float
-            Time between discreete signal values 
+        dt      : float
+                  Time between discreete signal values.
+
+        x_coord : float
+                  x coordinate of pixel of interest if modal decomposition approach is used. Default to 'None'.
+        
+        y_coord : float
+                  y coordinate of pixel of interest if modal decomposition approach is used. Default to 'None'.
         
         Methods
         -------
-        ._find_nearest()     : Find nearest element in array
+        ._find_nearest()     : Find nearest element in array.
         
-        ._pixel_selection()  : Pixel coordinates storage
+        ._pixel_selection()  : Pixel coordinates storage.
         
-        .loc_selection()     : Takes pixel coordinates and defines a roi_size location for the natural frequency identification
+        .loc_selection()     : Takes pixel coordinates and defines a roi_size location for the natural frequency identification.
         
-        .nf_identification() : Natural frequency identification
+        .nf_identification() : Natural frequency identification.
 
-        .get_life()          : Get the fatigue life
+        .get_life()          : Get the fatigue life.
 
         Raises
         ------
         ValueError : Frequency span around natural frequency must not be zero: set it to 'None' or to a float value.
-        ValueError : Method must be one of: Modal, TovoBenasciutti, Dirlik, Rainflow
+        ValueError : Method must be one of: Modal, TovoBenasciutti, Dirlik, Rainflow.
         """
         
         self.x = x
@@ -66,18 +72,18 @@ class ThermalData():
         Parameters
         ----------
         array : array_like
-                Array in which to find the searched value
+                Array in which to find the searched value.
 
         value : float
-                Searched value
+                Searched value.
 
         Return
         ------
         array[idx] : float
-                     Nearest value in array
+                     Nearest value in array.
 
         idx        : int
-                     Index of nearest value
+                     Index of nearest value.
 
         """
         
@@ -94,10 +100,10 @@ class ThermalData():
         Return
         ------
         x_coord : float
-                  x coordinate of selected pixel
-        
+                  x coordinate of pixel of interest if modal decomposition approach is used.
+
         y_coord : float
-                  y coordinate of selected pixel
+                  y coordinate of pixel of interest if modal decomposition approach is used.
 
         """
 
@@ -109,7 +115,7 @@ class ThermalData():
     def loc_selection(self):
 
         """
-        Plot figure for click mouse selection
+        Plot figure for click mouse selection.
 
         """
 
@@ -142,7 +148,7 @@ class ThermalData():
         Return
         ------
         nf        : float,
-                    Natural frequency identified from thermal video in the selected roi_size location
+                    Natural frequency identified from thermal video in the selected roi_size location.
         """
 
         if roi_size == None:
@@ -200,7 +206,7 @@ class ThermalData():
         Return
         ------
         life        : float
-                      Fatigue life [s]
+                      Fatigue life [s].
 
         """
 
@@ -218,7 +224,7 @@ class ThermalData():
             raise ValueError('Frequency span around natural frequency must not be zero: set it to "None" or to a float nonzero value.')
 
         if method not in ['Modal', 'TovoBenasciutti', 'Dirlik', 'Rainflow']:
-            raise ValueError('Method must be one of: Modal, TovoBenasciutti, Dirlik, Rainflow')
+            raise ValueError('Method must be one of: Modal, TovoBenasciutti, Dirlik, Rainflow.')
 
         if location is not None:
             (x, y, w, h) = location    
@@ -234,7 +240,7 @@ class ThermalData():
                         if method == 'Modal':
 
                             if f == None:
-                                raise ValueError('Natural frequency must be defined')
+                                raise ValueError('Natural frequency must be defined.')
 
                             fft  = np.abs(np.fft.rfft(self.ds[:,i,j], self.N) * 2 / self.N)
                             freq = np.fft.rfftfreq(self.N, self.dt)
