@@ -5,7 +5,7 @@ import FLife
 
 class ThermalData():
 
-    """ 
+    """
     Termoelasticity-based fatigue life identification.
     The class takes in input a thermal-stress video and gives in output the fatigue life, estimated via modal damage identification [1]
     and standard frequency- and time-domain methods [2]. The natural frequencies to be used in modal damage identification
