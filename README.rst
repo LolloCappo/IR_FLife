@@ -61,10 +61,10 @@ If the location id settled with roi cooirdinates
 .. code-block:: python
     
     band_pass = [5,100]         # Band pass filter applied during the natural frequency identification
-    roi = 5                     # ROI size [pixel]
+    roi_size = 5                # ROI size [pixel]
     location = (39, 79, 5, 5)   # Location of interest in the field of view [pixel]
 
-    f = td.nf_identification(location = location, roi = roi, band_pass = band_pass)
+    f = td.nf_identification(location = location, roi_size = roi_size, band_pass = band_pass)
 
 Fatigue life estimation
 -----------------------
