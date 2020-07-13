@@ -94,8 +94,26 @@ If the fatigue life is wanted in the spatial domain
     rf = td.get_life(C, k, 'Rainflow')
 
     plt.figure()
+
+    plt.subplot(2,2,1)
+    plt.imshow(dk)
+    plt.colorbar()
+    plt.title('Dirlik')
+
+    plt.subplot(2,2,2)
     plt.imshow(md)
     plt.colorbar()
+    plt.title('Modal approach')
+
+    plt.subplot(2,2,3)
+    plt.imshow(rf)
+    plt.colorbar()
+    plt.title('Rainflow')
+
+    plt.subplot(2,2,4)
+    plt.imshow(tb)
+    plt.colorbar()
+    plt.title('Tovo-Benasciutti')
 
 
 
