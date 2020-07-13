@@ -126,7 +126,7 @@ class ThermalData():
     def nf_identification(self, location = None, roi_size = None, band_pass = None):
 
         """
-        Natural frequency identification through Fourier analysis applie to the thermal video.
+        Natural frequency identification through Fourier analysis applied to the thermal video.
 
         Parameters
         ----------
