@@ -1,5 +1,5 @@
 
 *.inc
 *.sfmov
-_pycache_
-.ipynb_checkpoints
+*_pycache_
+*.ipynb_checkpoints
