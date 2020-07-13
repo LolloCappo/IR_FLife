@@ -84,7 +84,6 @@ class ThermalData():
 
         idx        : int
                      Index of nearest value.
-
         """
         
         array = np.asarray(array)
@@ -104,7 +103,6 @@ class ThermalData():
 
         y_coord : float
                   y coordinate of pixel of interest if modal decomposition approach is used.
-
         """
 
         self.x_coord, self.y_coord = event.xdata, event.ydata
@@ -116,7 +114,7 @@ class ThermalData():
 
         """
         Plot figure for click mouse selection.
-
+        
         """
 
         fig = plt.figure()
