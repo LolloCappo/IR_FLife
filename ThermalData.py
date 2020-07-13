@@ -53,7 +53,7 @@ class ThermalData():
         Raises
         ------
         ValueError : Frequency span around natural frequency must not be zero: set it to 'None' or to a float value.
-        ValueError : Method must be one of: Modal, TovoBenasciutti, Dirlik, Rainflow.
+        ValueError : Method must be one of: Dirlik, Modal, Rainflow, TovoBenasciutti.
         """
         
         self.x = x
@@ -140,7 +140,7 @@ class ThermalData():
                     If 'None', 5 pixel squared ROI size is used. Default to 'None'.
 
         band_pass : float, optional
-                    List of band pass filter frequencies for the natural frequency identification.
+                    List of band pass filter frequencies for the natural frequency identification using modal decomposition approach.
                     If 'None', band_pass = [5, 100] [Hz]. Default to 'None'.
 
         Return
@@ -186,8 +186,9 @@ class ThermalData():
 
         method      : string, optional
                       Method to use for the fatigue life estimation.
-                      Method = ['Modal', 'TovoBenasciutti', 'Dirlik', 'Rainflow']. If 'None', Tovo Benasciutti's
-                      method is used. Default to 'None'. 
+                      Method = ['Modal', 'TovoBenasciutti', 'Dirlik', 'Rainflow']. If 'None', Tovo-Benasciutti's
+                      method is used. Default to 'None'.
+                      (Tovo-Benasciutti 's method is used in its 2nd version. Please refer to [2] and FLife package for details)
 
         f           : float, optional
                       Natural frequency [Hz]. Necessary if method is 'Modal', otherwise is optional. 
@@ -198,7 +199,7 @@ class ThermalData():
                       for the entire spatial domain, otherwise maximum value in the ROI location is given. Default to 'None'.
 
         f_span      : float, optional
-                      Frequency span around the natural frequency where to find the maximum value for the fatigue life estimation.
+                      Frequency span around the natural frequency where to find the maximum value for the fatigue life estimation, if modal decomposition approach is used.
                       If is 'None', the f_span is 0.1 [Hz].
 
         Return
@@ -222,7 +223,7 @@ class ThermalData():
             raise ValueError('Frequency span around natural frequency must not be zero: set it to "None" or to a float nonzero value.')
 
         if method not in ['Modal', 'TovoBenasciutti', 'Dirlik', 'Rainflow']:
-            raise ValueError('Method must be one of: Modal, TovoBenasciutti, Dirlik, Rainflow.')
+            raise ValueError('Method must be one of: Dirlik, Modal, Rainflow, TovoBenasciutti.')
 
         if location is not None:
             (x, y, w, h) = location    
