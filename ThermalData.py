@@ -116,7 +116,7 @@ class ThermalData():
         Plot figure for click mouse selection.
         
         """
-
+        
         fig = plt.figure()
         ax = fig.add_subplot(111)
         ax.imshow(self.x[0,:,:])
@@ -211,7 +211,6 @@ class ThermalData():
 
         self.N = self.x.shape[0]
         self.ds = self.x - self.x[0,:,:]
-
 
         if f_span == None:
             f_span = 0.1
