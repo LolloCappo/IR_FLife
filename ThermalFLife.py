@@ -224,6 +224,10 @@ class ThermalFLife():
         if method not in ['Modal', 'TovoBenasciutti', 'Dirlik', 'Rainflow']:
             raise ValueError('Method must be one of: Dirlik, Modal, Rainflow, TovoBenasciutti.')
 
+        
+        if method == 'Modal' and f == None:
+            raise ValueError('Natural frequency must be defined if modal approach is used.')
+
         if location is not None:
             (x, y, w, h) = location    
             self.ds = self.ds[:, y:(y+h), x:(x+w)]
@@ -236,9 +240,6 @@ class ThermalFLife():
                     for j in range(self.ds.shape[2]):        
 
                         if method == 'Modal':
-
-                            if f == None:
-                                raise ValueError('Natural frequency must be defined.')
 
                             fft  = np.abs(np.fft.rfft(self.ds[:,i,j], self.N) * 2 / self.N)
                             freq = np.fft.rfftfreq(self.N, self.dt)
