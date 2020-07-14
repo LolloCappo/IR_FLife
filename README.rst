@@ -13,7 +13,7 @@ Import packages
     import numpy as np
     import matplotlib.pyplot as plt
     import pysfmov as sfmov
-    from ThermalData import *
+    from ThermalFLife import *
 
 
 Material Parameters
@@ -44,7 +44,7 @@ Class initialization
 
 .. code-block:: python
 
-    td = ThermalData(stress, dt)        # Class initialization
+    td = ThermalFLife(stress, dt)        # Class initialization
 
 Natural frequency identification from thermal video
 ---------------------------------------------------
