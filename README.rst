@@ -1,4 +1,4 @@
-Thermoelasticity-based fatigue life identification
+Thermoelasticity-based fatigue life estimation
 ---------------------------------------------
 
 Obtaining vibration fatigue life form thermal images acquisition.
