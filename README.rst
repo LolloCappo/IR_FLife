@@ -1,7 +1,7 @@
 Thermoelasticity-based fatigue life estimation
 ---------------------------------------------
 
-Obtaining vibration fatigue life form thermal images acquisition.
+Estimation of vibration fatigue life from thermal images acquisition.
 The class is based on the modal damage via thermoelasticity [1] and on the FLife package [2].
 
 
