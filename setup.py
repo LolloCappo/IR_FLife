@@ -3,7 +3,7 @@ with open('README.rst', 'r', encoding='utf8') as f:
     readme = f.read()
     
 from setuptools import setup, Extension
-from IRFLife import __version__
+from IR_FLife import __version__
 
 if __name__ == '__main__':
     setup(
