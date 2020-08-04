@@ -4,6 +4,12 @@ Thermoelasticity-based fatigue life estimation
 Estimation of vibration fatigue life from thermal images acquisition.
 The class is based on the modal damage via thermoelasticity [1] and on the FLife package [2].
 
+Install packages using pip
+-----------------------
+
+.. code-block:: python
+
+    pip install IRFlife
 
 Import packages
 -----------------------
@@ -13,7 +19,7 @@ Import packages
     import numpy as np
     import matplotlib.pyplot as plt
     import pysfmov as sfmov
-    from  IRFLife import *
+    import IRFlife
 
 
 Material Parameters
