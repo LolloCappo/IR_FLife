@@ -93,6 +93,10 @@ If the fatigue life is wanted in the spatial domain
     dk = td.get_life(C, k, 'Dirlik')
     rf = td.get_life(C, k, 'Rainflow')
 
+Then, the spatial domain results are shown:
+
+.. code-block:: python
+
     plt.figure()
 
     plt.subplot(2,2,1)
