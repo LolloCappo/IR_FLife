@@ -80,6 +80,7 @@ If the fatigue life is wanted at a particular location
 .. code-block:: python
 
     location = (39, 79, 5, 5)   # Location of interest in the field of view [pixel]
+
     md = td.get_life(C, k, 'Modal', f = f, location = location)
     tb = td.get_life(C, k, 'TovoBenasciutti', location = location)
     dk = td.get_life(C, k, 'Dirlik', location = location)
