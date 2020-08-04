@@ -9,7 +9,7 @@ Install packages using pip
 
 .. code-block:: python
 
-    pip install IRFlife
+    pip install IRFLife
 
 Import packages
 -----------------------
@@ -19,7 +19,7 @@ Import packages
     import numpy as np
     import matplotlib.pyplot as plt
     import pysfmov as sfmov
-    import IRFlife
+    import IRFLife
 
 
 Material Parameters
