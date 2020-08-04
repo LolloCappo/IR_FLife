@@ -9,7 +9,7 @@ Install packages using pip
 
 .. code-block:: python
 
-    pip install IRFLife
+    pip install IR_FLife
 
 Import packages
 -----------------------
@@ -19,7 +19,7 @@ Import packages
     import numpy as np
     import matplotlib.pyplot as plt
     import pysfmov as sfmov
-    import IRFLife
+    import IR_FLife as irfl
 
 
 Material Parameters
@@ -50,7 +50,7 @@ Class initialization
 
 .. code-block:: python
 
-    td =  IRFLife(stress, dt)        # Class initialization
+    td =  irfl.IR_FLife(stress, dt)       # Class initialization
 
 Natural frequency identification from thermal video
 ---------------------------------------------------

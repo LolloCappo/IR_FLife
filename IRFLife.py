@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from tqdm import tqdm
 import FLife
 
-class IRFLife():
+class IR_FLife():
 
     """
     Termoelasticity-based fatigue life identification.
