@@ -8,6 +8,7 @@ Install packages using pip
 -----------------------
 
 .. code-block:: python
+
     pip install IRFlife
 
 Import packages
