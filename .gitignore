@@ -2,3 +2,6 @@
 __pycache__/
 
 .ipynb_checkpoints/
+dist/IR_FLife-0.1.tar.gz
+IR_FLife.egg-info/dependency_links.txt
+IR_FLife.egg-info/PKG-INFO
